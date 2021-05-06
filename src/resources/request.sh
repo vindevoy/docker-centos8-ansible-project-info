@@ -1,0 +1,1 @@
+echo "{ 'hello': 'world' }" > /var/www/openresty/request.json

@@ -15,7 +15,7 @@ ENV GIT_PROTOCOL=https
 ENV GIT_URL=github.com/vindevoy/docker-centos8-ansible-project-info.git  
 ENV GIT_ACCESS_TOKEN=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
 ENV GIT_BRANCH=develop
-ENV HOSTS_FILE=/var/opt/ansible/src/sample/site.yml
+ENV INVENTORY_FILE=src/sample/site.yml
 
 # This automatically overwrites the existing files from the base image
 COPY resources/* /root/
@@ -33,23 +33,6 @@ RUN dnf update -y --nodocs
 
 # Install the really needed packages
 RUN dnf install -y --nodocs ansible git moreutils jq
-
-# Create env.sh with all env vars, so we can re-use them later
-# Although we run with -e and pass all the variables, they are not available to the scripts in root
-# The below generated file provides a solution for that, use "source /root/env.sh"
-RUN echo "#!/bin/bash"                              >   /root/env.sh
-RUN echo ""                                         >>  /root/env.sh
-RUN echo "GIT_PROTOCOL="${GIT_PROTOCOL}             >>  /root/env.sh 
-RUN echo "GIT_URL="${GIT_URL}                       >>  /root/env.sh 
-RUN echo "GIT_ACCESS_TOKEN="${GIT_ACCESS_TOKEN}     >>  /root/env.sh 
-RUN echo "GIT_BRANCH="${GIT_BRANCH}                 >>  /root/env.sh 
-RUN echo "HOSTS_FILE="${HOSTS_FILE}                 >>  /root/env.sh 
-RUN echo ""                                         >>  /root/env.sh
-RUN echo "export GIT_PROTOCOL"                      >>  /root/env.sh 
-RUN echo "export GIT_URL"                           >>  /root/env.sh 
-RUN echo "export GIT_ACCESS_TOKEN"                  >>  /root/env.sh 
-RUN echo "export GIT_BRANCH"                        >>  /root/env.sh 
-RUN echo "export HOSTS_FILE"                        >>  /root/env.sh 
 
 # Make sure scripts are executable
 RUN chmod +x /root/*.sh 

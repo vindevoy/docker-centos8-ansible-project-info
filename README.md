@@ -8,7 +8,7 @@ Set the following environment variables before launching (below settings for thi
 
 - GIT_PROTOCOL=https
 - GIT_URL=github.com/vindevoy/docker-centos8-ansible-project-info.git  
-- GIT_ACCESS_TOKEN=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
+- GIT_ACCESS_TOKEN=PUT_YOUR_TOKEN_HERE
 - GIT_BRANCH=develop
 - INVENTORY_FILE=src/sample/site.yml  (relative path, without starting slash !!)
 

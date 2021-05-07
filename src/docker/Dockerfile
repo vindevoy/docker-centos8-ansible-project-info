@@ -35,6 +35,8 @@ RUN dnf update -y --nodocs
 RUN dnf install -y --nodocs ansible git moreutils jq
 
 # Create env.sh with all env vars, so we can re-use them later
+# Although we run with -e and pass all the variables, they are not available to the scripts in root
+# The below generated file provides a solution for that, use "source /root/env.sh"
 RUN echo "#!/bin/bash"                              >   /root/env.sh
 RUN echo ""                                         >>  /root/env.sh
 RUN echo "GIT_PROTOCOL="${GIT_PROTOCOL}             >>  /root/env.sh 

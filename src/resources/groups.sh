@@ -16,4 +16,7 @@ echo Generating output: $OUTPUT_DIR/$OUTPUT_FILE
 
 ansible-inventory -i $HOSTS_FILE --list | jq .all.children | jq '[ .[] | select(. != "ungrouped") ]' | sponge $OUTPUT_DIR/$OUTPUT_FILE
 
+#debug
+#cat $OUTPUT_DIR/$OUTPUT_FILE
+
 echo "Groups request done"

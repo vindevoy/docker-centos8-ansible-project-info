@@ -1,6 +1,6 @@
 # docker-centos8-ansible-project-info
 
-Retrieves information on an Ansible project over HTTP (using OpenResty)
+Retrieves information on an Ansible project over HTTP (using OpenResty).  This Docker image runs on CentOS 8.
 
 ## Usage:
 

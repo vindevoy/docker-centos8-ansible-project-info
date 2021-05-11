@@ -25,6 +25,7 @@ Upon restart, it will clone again, allowing change of parameters.
 
 ## Version history
 
-- 1.0.2 (2020-05-07): bugfix, nulls in hosts when using subgroups
+- 1.0.3 (2020-05-11): bugfix, missing groups because of subgroups
+- 1.0.2 (2020-05-10): bugfix, nulls in hosts when using subgroups
 - 1.0.1 (2020-05-07): minor bugfix, prevents problem detected in Debian image
 - 1.0.0 (2020-05-07): first version providing [ROOT]/hosts, [ROOT]/groups, [ROOT]/hosts_groups
